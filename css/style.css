@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'Rational Integer';
+    src: url('../Rational Integer.ttf');
+}
+
+body {
+    font-family: 'Rational Integer';
+    background-color: #dde6e5;
+    letter-spacing: .11rem;
+}
+
+main {
+    background-color: #6da1bdbd;
+}
+
+nav {
+    flex: 0;
+    /* display: flex; */
+    background-color: #b3d7b6;
+    width: 100%;
+    min-height: 75px;
+    border-bottom: black 1px solid;
+}
+
+.nav-link {
+    color: black;
+    font-size: large;
+    text-decoration: underline;
+}
+
+.navbar-brand {
+    text-decoration: underline;
+}
+
+.navbar-toggler {
+    padding: 3px;
+}
+
+.navbar-collapse {
+    flex-basis:60%;
+}
+
+div.border-dark-subtle {
+    width: 300px;
+    height: 150px;
+    color:black;
+    border: 2px solid #000000ae;
+}
+
+a {
+    color:black;
+}
+
+.photoImage {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.productName {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.description {
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+button {
+    max-width: fit-content!important;
+}
+
+div.text-box {
+    width: 310px;
+    height: 140px;
+}
+
+div.border {
+    background-color: rgba(169, 180, 212, 0.252);
+}
+
+.social-img {
+    width: 22px;
+    margin-bottom: 9px;
+}
+
+#photoName {
+    font-style: italic;
+}
+
+/* a {
+    text-decoration: none !important;
+} */
+/* 
+.cart-icon {
+    filter: invert(0%) sepia(4%) saturate(0%) hue-rotate(293deg) brightness(95%) contrast(105%);
+    width: 30px;
+} */

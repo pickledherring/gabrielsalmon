@@ -8,18 +8,21 @@
 </head>
 <body>
     <main class="container min-vh-100 d-flex flex-column g-0 border-start border-end border-dark rounded">
-        <header class="my-4">
-            <h1 class="text-center">Software Engineering</h1>
-            <hr>
+        <header class="my-4 d-flex justify-content-between align-items-center">
+            <h1 class="home btn mx-4"><a href="index.html">Home</a></h1>
+            <h1 class="text-center flex-grow-1">Software Engineering</h1>
         </header>
 
-        <section class="row my-4">
-            <div class="col-md-3 mx-auto my-4">
+        <section class="row">
+            <div class="col-md-3 mx-4">
                 <div class="border border-dark">
                     <img src="images/bbox.png" class="img-fluid" alt="Software project">
                 </div>
             </div>
-            <div class="col-md-6 mx-auto my-4">
+            <div class="col-md-1 d-flex justify-content-center">
+                <div class="vr bg-secondary"></div>
+            </div>
+            <div class="col-md-6 my-4">
                 <h2>About Gabriel Salmon</h2>
                 <p>
                     Gabriel Salmon is a software engineer in Seattle specializing in data engineering and automation. He builds efficient systems that transform complex data into useful tools.
@@ -30,16 +33,22 @@
         </section>
 
         <!-- media column -->
-        <section class="row my-4">
-            <div class="col-md-6 mx-auto my-4">
-                <!-- <h2 class="text-center">GitHub Projects</h2> -->
-                <div class="ratio ratio-16x9">
-                    <a href="https://github.com/pickledherring/image_analysis" target="_blank">Image Analysis Repository</a>
+        <section class="row">
+            <div class="col-md-3 mx-4 my-4"></div>
+            <div class="col-md-1 d-flex justify-content-center">
+                <div class="vr bg-secondary"></div>
+            </div>
+            <div class="col-md-6 my-4">
+                <div class="card border-dark media-card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Projects</h5>
+                        <a href="https://github.com/pickledherring/image_analysis" target="_blank" class="btn btn-primary">Image Analysis Repository</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <footer class="mt-4">
+        <footer class="mt-auto"> 
             <p class="text-center my-0">All rights reserved</p>
         </footer>
     </main>

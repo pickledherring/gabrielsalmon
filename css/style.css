@@ -49,6 +49,7 @@ div.border-dark-subtle {
 
 a {
     color:black;
+    text-decoration: none;
 }
 
 .photoImage {
@@ -88,6 +89,21 @@ div.border {
 
 #photoName {
     font-style: italic;
+}
+
+.home {
+    font-size: 2.3rem;
+}
+
+.vr {
+    width: 2px;
+    height: auto; /* Adjust to span both sections */
+    background-color: #6c757d; /* Bootstrap secondary color */
+    opacity: 0.5;
+}
+
+.media-card {
+    background-color: #b3d7b6; /* Align with site color scheme */
 }
 
 /* a {

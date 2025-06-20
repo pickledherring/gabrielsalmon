@@ -5,12 +5,12 @@
 
 body {
     font-family: 'Rational Integer';
-    background-color: #dde6e5;
+    background-color: #8c95a9;
     letter-spacing: .11rem;
 }
 
 main {
-    background-color: #6da1bdbd;
+    background-color: #aed5ebbd;
 }
 
 nav {
@@ -69,6 +69,10 @@ a {
     text-align: left;
 }
 
+.right-col {
+    background-color: rgba(70, 47, 70, 0.349);
+}
+
 button {
     max-width: fit-content!important;
 }
@@ -103,7 +107,7 @@ div.border {
 }
 
 .media-card {
-    background-color: #b3d7b6; /* Align with site color scheme */
+    background-color: #4b4848d2; /* Align with site color scheme */
 }
 
 /* a {

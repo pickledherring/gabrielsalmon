@@ -8,71 +8,72 @@
 </head>
 <body>
     <main class="container min-vh-100 d-flex flex-column g-0 border-start border-end border-dark rounded">
-        <header class="my-4 d-flex justify-content-between align-items-center">
-            <h1 class="home btn mx-4"><a href="index.html">Home</a></h1>
-            <h1 class="text-center flex-grow-1 text-decoration-underline">Software Engineering</h1>
-        </header>
+        <div class="row">
+            <header class="my-4 d-flex justify-content-between align-items-center">
+                <div class="col-3">
+                    <h1 class="home text-center text-decoration-underline mx-4"><a href="index.html">Home</a></h1>
+                </div>
+                <div class="col-9">
+                    <h1 class="text-center flex-grow-1 text-decoration-underline">Software Engineering</h1>
+                </div>
+            </header>
+        </div>
 
-        <section class="row my-4">
-
-            <!-- left column -->
-            <div class="col-md-4 mx-4">
-                <img src="images/bbox.PNG" class="img-fluid border border-dark rounded" alt="cell detection and bounding">
+        <section class="row">
+            <div class="col-md-3 mx-4">
+                <div class="border border-dark">
+                    <img src="images/bbox.PNG" class="img-fluid" alt="bounding boxes around cancerous cells">
+                </div>
             </div>
 
-            <!-- right column -->
-            <div class="col-md-7 mx-2 right-col border-dark rounded">
-                <div class="row mx-4 my-4">
-                    <h2>About Gabriel Salmon</h2>
-                    <p>
-                        Gabriel Salmon is a software engineer in Seattle specializing in data engineering and automation. He builds efficient systems that transform complex data into useful tools.
-                        His experience includes designing an intelligence data pipeline at NAVSEA and creating automation tools for vaccine testing at PPD. As a freelancer, Gabriel develops custom websites and web scraping solutions for clients.
-                        <br><br>
-                        Github: 
-                        <a href="https://www.github.com/pickledherring" target="_blank">
-                            https://www.github.com/pickledherring
-                        </a>
+            <div class="col-md-1 p-0 d-flex right-col rounded-start justify-content-center">
+                <div class="vr bg-secondary"></div>
+            </div>
 
-                        <br>
-                        LinkedIn: 
-                        <a href="https://www.linkedin.com/in/gabe-salmon" target="_blank">
-                            https://www.linkedin.com/in/gabe-salmon
-                        </a>
-                        <br>
-                    </p>
-                </div>
+            <div class="col-md-7 p-5 right-col rounded-end">
+                <h2>About Gabriel Salmon</h2>
+                <p>
+                    Gabriel Salmon is a software engineer in Seattle specializing in data engineering and automation. He builds efficient systems that transform complex data into useful tools.
+                    His experience includes designing an intelligence data pipeline at NAVSEA and creating automation tools for vaccine testing at PPD. As a freelancer, Gabriel develops custom websites and web scraping solutions for clients.
+                    <br><br>
+                    Github: 
+                    <a href="https://www.github.com/pickledherring" target="_blank">
+                        https://www.github.com/pickledherring
+                    </a>
 
-                <!-- media -->
-                <div class="row mx-4 my-4">
-                    <div class="col">
-                        <h2>Projects</h2>
-                        <hr>
+                    <br>
+                    LinkedIn: 
+                    <a href="https://www.linkedin.com/in/gabe-salmon" target="_blank">
+                        https://www.linkedin.com/in/gabe-salmon
+                    </a>
+                    <br>
+                </p>
+           
+                <h2>Projects</h2>
+                <hr>
 
-                        <a href="https://github.com/pickledherring/image_analysis" target="_blank" class="btn">
-                            <img src="images/bbox.PNG" class="img-fluid my-4" alt="cell detection and bounding">
-                        </a>
+                <a href="https://github.com/pickledherring/image_analysis" target="_blank" class="btn">
+                    <img src="images/bbox.PNG" class="img-fluid my-4" alt="cell detection and bounding">
+                </a>
 
-                        <br>
-                        <h4>Image Analysis Repository</h4>
-                        
-                        <p>
-                            This repository contains an image processing library based around detecting cancerous cells in smears using Python and OpenCV. It includes scripts for image preprocessing, contour detection, and bounding box generation. It also includes a couple machine learning methods to predict which of the eight types of cancer present in the dataset is present in each image.
-                        </p>
+                <br>
+                <h4>Image Analysis Repository</h4>
+                
+                <p>
+                    This repository contains an image processing library based around detecting cancerous cells in smears using Python and OpenCV. It includes scripts for image preprocessing, contour detection, and bounding box generation. It also includes a couple machine learning methods to predict which of the eight types of cancer present in the dataset is present in each image.
+                </p>
 
-                        <a href="https://github.com/pickledherring/tsp_parallel_3d" target="_blank" class="btn">
-                            <img src="images/48StatesTSP.png" class="img-fluid my-4" alt="A traveling salesman's path across 48 states">
-                        </a>
+                <a href="https://github.com/pickledherring/tsp_parallel_3d" target="_blank" class="btn">
+                    <img src="images/48StatesTSP.png" class="img-fluid my-4" alt="A traveling salesman's path across 48 states">
+                </a>
 
-                        <p style="font-size: .75rem;">Image source: https://optimization.cbe.cornell.edu/index.php?title=File:48StatesTSP.png</p>
-                        <br>
-                        <h4>Traveling Salesman, Parallelized</h4>
-                        
-                        <p>
-                            The Traveling Salesman Problem (TSP) is a classic optimization problem. This variation involves a salesman's risk of infection along the route, and the program solves for the least risky path, which follows the standard formulation of weights on an undirected graph. This repository contains a parallelized solution using MPI (Message Passing Interface).
-                        </p>
-
-                    </div>
-                </div>
+                <p style="font-size: .75rem;">Image source: https://optimization.cbe.cornell.edu/index.php?title=File:48StatesTSP.png</p>
+                <br>
+                <h4>Traveling Salesman, Parallelized</h4>
+                
+                <p>
+                    The Traveling Salesman Problem (TSP) is a classic optimization problem. This variation involves a salesman's risk of infection along the route, and the program solves for the least risky path, which follows the standard formulation of weights on an undirected graph. This repository contains a parallelized solution using MPI (Message Passing Interface).
+                </p>
             </div>
         </section>
 

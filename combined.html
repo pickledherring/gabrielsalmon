@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gabriel Salmon</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Border color options - uncomment one to test */
+        .border-option-1 { border-color: #2c3e50 !important; border-width: 3px !important; } /* Dark Blue-Gray */
+        .border-option-2 { border-color: #8b4789 !important; border-width: 3px !important; } /* Purple */
+        .border-option-3 { border-color: #34495e !important; border-width: 3px !important; } /* Charcoal */
+        .border-option-4 { border-color: #5d4e6d !important; border-width: 3px !important; } /* Muted Purple */
+
+        .performance-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-width: 3px !important;
+        }
+
+        .performance-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .performance-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(70, 47, 70, 0.5), rgba(70, 47, 70, 0.7));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .software-section {
+            background: linear-gradient(135deg, rgba(70, 47, 70, 0.4), rgba(139, 71, 137, 0.1));
+            border-radius: 50px;
+            border: 4px solid #8b4789;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-right: -3rem;
+            padding: 2.5rem !important;
+        }
+
+        .main-container {
+            position: relative;
+        }
+
+        .headshot-section {
+            border-width: 3px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Main Content Column -->
+            <div class="col-lg-8">
+                <main class="container min-vh-100 d-flex flex-column g-0 border-start border-end border-dark rounded main-container">
+                    <div class="row my-4">
+                        <div class="col">
+                            <h1 class="text-center" style="text-decoration:underline;">Gabriel Salmon</h1>
+                            <br>
+                            <hr class="border-option-1">
+                        </div>
+                    </div>
+
+                    <div class="row mx-4">
+                        <!-- Headshot at top -->
+                        <div class="col-12 mb-5">
+                            <div class="border border-option-2 headshot-section justify-content-center d-flex rounded mx-auto" style="max-width: 705px;">
+                                <img src="images/performance.JPG" class="img-fluid w-100" alt="Singing performance" style="max-width: 700px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mx-4">
+                        <div class="col-12">
+                            <!-- Singing Bio Section -->
+                            <section class="mb-5 px-4">
+                                <h2 class="mb-4">About - Singing</h2>
+                                <p style="font-size: 1.05rem; line-height: 1.7;">
+                                    Gabriel Salmon is a bass-baritone based in Seattle who performs with the Swedish Choir of Seattle, Blessed Sacrament, and Harmonia. His vocal work spans both church music and concert repertoire throughout the Pacific Northwest.
+
+                                    Previously in Minnesota, Gabriel performed with Minnesota Opera, Mixed Precipitation's Picnic Operetta, and Gilbert & Sullivan Light Opera Company. His voice is resonant and commanding, with a dark, velvety tone in the lower range that opens to a bright, clear upper register.
+
+                                    Since relocating to Seattle in 2023, Gabriel has quickly integrated into the local music community.
+                                </p>
+                            </section>
+
+                            <hr class="border-option-3">
+
+                            <!-- Upcoming Performances Section -->
+                            <section class="mb-5 px-4">
+                                <h2 class="text-center mb-5">Upcoming Performances</h2>
+
+                                <!-- Performance 5 - An Evening of Song -->
+                                <a href="https://www.blessed-sacrament.org/song" target="_blank" class="text-decoration-none">
+                                    <div class="border border-option-2 rounded p-4 mb-4 right-col performance-card d-flex align-items-start">
+                                        <div class="performance-icon">🎵</div>
+                                        <div class="flex-grow-1">
+                                            <h5 class="text-dark">An Evening of Song</h5>
+                                            <p class="mb-1 text-dark"><strong>Date:</strong> Saturday, May 30, 2026 at 7:30 PM</p>
+                                            <p class="mb-1 text-dark"><strong>Venue:</strong> Blessed Sacrament Church</p>
+                                            <p class="mb-0 text-dark">Vocal music of the Romantic period with Dr. Casey Robards at the piano. Reception with refreshments and appetizers to follow.</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <!-- Performance 4 - The Planets -->
+                                <a href="https://www.harmoniaseattle.org/concerts/2026-05-08/" target="_blank" class="text-decoration-none">
+                                    <div class="border border-option-2 rounded p-4 mb-4 right-col performance-card d-flex align-items-start">
+                                        <div class="performance-icon">🪐</div>
+                                        <div class="flex-grow-1">
+                                            <h5 class="text-dark">The Planets - Harmonia Orchestra & Chorus</h5>
+                                            <p class="mb-1 text-dark"><strong>Date:</strong> Friday, May 8, 2026 at 8:00 PM</p>
+                                            <p class="mb-1 text-dark"><strong>Venue:</strong> Benaroya Hall, 200 University Street, Seattle</p>
+                                            <p class="mb-0 text-dark">Gustav Holst's orchestral suite paired with works by Lili Boulanger. Featuring mezzo-soprano Rose Beattie and the Wellspring Ensemble. Conducted by William White.</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <!-- Performance 3 - Israel in Egypt -->
+                                <a href="https://www.harmoniaseattle.org/concerts/2026-03-28/" target="_blank" class="text-decoration-none">
+                                    <div class="border border-option-2 rounded p-4 mb-4 right-col performance-card d-flex align-items-start">
+                                        <div class="performance-icon">🎼</div>
+                                        <div class="flex-grow-1">
+                                            <h5 class="text-dark">Israel in Egypt - Handel</h5>
+                                            <p class="mb-1 text-dark"><strong>Date:</strong> Saturday, March 28, 2026 at 2:30 PM</p>
+                                            <p class="mb-1 text-dark"><strong>Venue:</strong> First Free Methodist Church, 3200 3rd Ave W, Seattle</p>
+                                            <p class="mb-0 text-dark">Harmonia Orchestra & Chorus performs Handel's oratorio telling the biblical story of the Israelites' liberation from Egyptian bondage. Conducted by William White.</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <!-- Performance 2 - NOISE Tour -->
+                                <a href="https://www.noiseforkids.org/2026tour" target="_blank" class="text-decoration-none">
+                                    <div class="border border-option-2 rounded p-4 mb-4 right-col performance-card d-flex align-items-start">
+                                        <div class="performance-icon">🎭</div>
+                                        <div class="flex-grow-1">
+                                            <h5 class="text-dark">The Barber of Seville - The Shaving Scene</h5>
+                                            <p class="mb-1 text-dark"><strong>Date:</strong> February 23 - April 3, 2026</p>
+                                            <p class="mb-1 text-dark"><strong>Venue:</strong> Touring Washington State</p>
+                                            <p class="mb-0 text-dark">Northwest Opera In Schools, Etcetera (NOISE) tour bringing opera education to schools across Washington.</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <!-- Performance 1 - Reflections -->
+                                <a href="https://www.harmoniaseattle.org/concerts/2026-02-07" target="_blank" class="text-decoration-none">
+                                    <div class="border border-option-2 rounded p-4 mb-4 right-col performance-card d-flex align-items-start">
+                                        <div class="performance-icon">🎶</div>
+                                        <div class="flex-grow-1">
+                                            <h5 class="text-dark">Reflections - Harmonia Chorus</h5>
+                                            <p class="mb-1 text-dark"><strong>Date:</strong> Saturday, February 7, 2026 at 7:30 PM</p>
+                                            <p class="mb-1 text-dark"><strong>Venue:</strong> First Free Methodist Church, 3200 3rd Ave W, Seattle</p>
+                                            <p class="mb-0 text-dark">Diverse choral works from Baroque to contemporary, featuring world premiere by Huntley Beyer. Works by Handel, Purcell, Barber, and Rachmaninov. Conducted by William White.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </section>
+
+                            <hr class="border-option-1">
+
+                            <!-- Video Recordings Section -->
+                            <section class="mb-5 px-4">
+                                <h2 class="text-center mb-5">Recordings</h2>
+
+                                <h3 class="text-center mt-4">Die erste Walpurgisnacht - So weit gebracht</h3>
+                                <div class="ratio ratio-16x9 mb-5">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/sPnj0Cn8fuk?si=WtR1OrzGiv0tpA05" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+
+                                <h3 class="text-center mt-4">Die erste Walpurgisnacht - Wer opfer heut'</h3>
+                                <div class="ratio ratio-16x9 mb-5">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Vt8PJTyJNss?si=lUR-TxUUxXKvEqee" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+
+                                <h3 class="text-center mt-4">Ireland - Greater Love</h3>
+                                <div class="ratio ratio-16x9 mb-5">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tl2BCUgU9nQ?si=1bLxtGea1RYA-rje&amp;start=2760" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+
+                                <h3 class="text-center mt-4">O Isis und Osiris</h3>
+                                <div class="ratio ratio-16x9 mb-5">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/OsB0p5_2AN4?si=24MNO2O-rZY181AD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <hr class="border-option-1">
+
+                    <!-- Footer -->
+                    <footer class="my-4 px-5">
+                        <div class="row">
+                            <div class="col-4">
+                                <p class="text-center">Contact me at gtsalmon@gmail.com</p>
+                            </div>
+                            <div class="col-4">
+                                <p class="text-center">All rights reserved</p>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                    </footer>
+                </main>
+            </div>
+
+            <!-- Right Floating Software Engineering Section -->
+            <div class="col-lg-4 d-flex align-items-start pt-5">
+                <div class="software-section sticky-top" style="top: 20px;">
+                    <h2 class="text-center mb-4 text-white">Software Engineering</h2>
+
+                    <div class="mb-4">
+                        <h5 class="text-white">About Gabriel</h5>
+                        <p class="text-white" style="font-size: 0.9rem;">
+                            Gabriel Salmon is a software engineer in Seattle specializing in data engineering and automation. He builds efficient systems that transform complex data into useful tools.
+                        </p>
+                        <div class="border border-light rounded p-3 mb-3 text-white" style="font-size: 0.85rem; background: rgba(255,255,255,0.1);">
+                            <strong>Github:</strong><br>
+                            <a href="https://www.github.com/pickledherring" target="_blank" class="text-white">
+                                github.com/pickledherring
+                            </a>
+                            <br><br>
+                            <strong>LinkedIn:</strong><br>
+                            <a href="https://www.linkedin.com/in/gabe-salmon" target="_blank" class="text-white">
+                                linkedin.com/in/gabe-salmon
+                            </a>
+                        </div>
+                    </div>
+
+                    <hr class="border-light">
+
+                    <h3 class="text-center mb-4 text-white" style="font-size: 1.5rem;">Projects</h3>
+
+                    <!-- Project 1 -->
+                    <div class="border border-light rounded p-4 mb-4" style="background: rgba(255,255,255,0.1);">
+                        <a href="https://github.com/pickledherring/image_analysis" target="_blank" class="btn p-0 mb-3 w-100">
+                            <img src="images/bbox.PNG" class="img-fluid" alt="cell detection and bounding">
+                        </a>
+                        <h5 class="text-center text-white">
+                            <a href="https://github.com/pickledherring/image_analysis" target="_blank" class="text-white text-decoration-none">
+                                Image Analysis
+                            </a>
+                        </h5>
+                        <p class="text-white" style="font-size: 0.85rem;">
+                            Image processing library for detecting cancerous cells using Python and OpenCV. Includes preprocessing, contour detection, and machine learning methods.
+                        </p>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="border border-light rounded p-4 mb-4" style="background: rgba(255,255,255,0.1);">
+                        <a href="https://github.com/pickledherring/tsp_parallel_3d" target="_blank" class="btn p-0 mb-3 w-100">
+                            <img src="images/48StatesTSP.png" class="img-fluid" alt="A traveling salesman's path across 48 states">
+                        </a>
+                        <h5 class="text-center text-white">
+                            <a href="https://github.com/pickledherring/tsp_parallel_3d" target="_blank" class="text-white text-decoration-none">
+                                TSP Parallelized
+                            </a>
+                        </h5>
+                        <p class="text-white" style="font-size: 0.85rem;">
+                            Parallelized solution to the Traveling Salesman Problem with infection risk, using MPI for efficient computation.
+                        </p>
+                        <p class="text-white" style="font-size: 0.65rem;">
+                            Image source: optimization.cbe.cornell.edu
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -10,4 +10,3 @@ worker/
 node_modules/
 .cargo-ok
 .dev.vars
-font/

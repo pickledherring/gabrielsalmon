@@ -88,11 +88,6 @@ div.border-dark-subtle {
     border: 2px solid #000000ae;
 }
 
-a {
-    color:black;
-}
-
-
 button {
     max-width: fit-content!important;
 }

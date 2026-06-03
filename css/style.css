@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Rational Integer';
-    src: url('./font/Rational Integer.ttf');
+    font-family: 'RationalInteger';
+    src: url('/fonts/rational-integer.ttf') format('truetype');
 }
 .grey-border { border-color: #2c3e50 !important; border-width: 3px !important; }
 .purple-border { border-color: #8b4789 !important; border-width: 3px !important; }
@@ -72,7 +72,7 @@
 
 
 body {
-    font-family: 'Rational Integer';
+    font-family: 'RationalInteger';
     background-color: #14191f;
     letter-spacing: .11rem;
 }

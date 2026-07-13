@@ -54,10 +54,10 @@
                                     <h3 class="blog-post-title">Wiring Up</h3>
                                     <div class="blog-post-content">
                                         <p>
-                                            Got all four drivers wired to the perfboard power rails and the motors connected. Immediately blew a fuse. The Nano setup took longer than I expected. The factory image hung on boot, so I flashed JetPack 4.6.6 fresh from a microSD, forgot the password flashed again.
+                                            Got all four drivers wired to the perfboard power rails and the motors connected. Immediately blew a fuse. The Nano setup took longer than I expected. The factory image hung on boot, so I flashed JetPack 4.6.6 fresh from a microSD, forgot the password, flashed again.
                                         </p>
                                         <p>
-                                           The Jetson Nano has no software PWM, but it does have two hardware PWM channels on pins 32 and 33, disabled by default. I found this in someone https://www.seeedstudio.com/blog/2020/05/27/configure-pwm-output-on-jetson-nano-m. The fix is running jetson-io.py to enable them. Once that was done, the first motor spun immediately.
+                                           The Jetson Nano has no software PWM, but it does have two hardware PWM channels on pins 32 and 33, disabled by default. I found this in <a href="https://www.seeedstudio.com/blog/2020/05/27/configure-pwm-output-on-jetson-nano-m">someone's blog</a>. The fix is running jetson-io.py to enable them. Once that was done, the first motor spun immediately.
                                         </p>
                                         <p>
                                             Two PWM channels isn't enough for four motors, so I moved to a PCA9685. It talks to the Nano over I2C on pins 3 and 5, and I ran a PWM signal line from each of its 16 channels to the drivers. For the Nano's power I'm building a 5V pack from 18650 cells in parallel through an XL6009 boost converter.

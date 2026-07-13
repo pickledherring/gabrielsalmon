@@ -1,7 +1,13 @@
-@font-face {
-    font-family: 'RationalInteger';
-    src: url('/fonts/rational-integer.ttf') format('truetype');
+/* Type scale, evenly stepped from recording-meta (--fs-min) up to page title h1 (--fs-max) */
+:root {
+    --fs-min: 1.05rem;   /* recording meta / blog date, smallest text */
+    --fs-base: 1.3rem;   /* body copy, nav, card sub-labels */
+    --fs-h5: 1.55rem;    /* card titles */
+    --fs-h3: 1.8rem;     /* recording / blog post titles */
+    --fs-h2: 2.05rem;    /* section headings */
+    --fs-max: 2.5rem;    /* page title h1, largest text */
 }
+
 .grey-border { border-color: #2c3e50 !important; border-width: 3px !important; }
 .purple-border { border-color: #8b4789 !important; border-width: 3px !important; }
 
@@ -72,10 +78,18 @@
 
 
 body {
-    font-family: 'RationalInteger';
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #14191f;
-    letter-spacing: .11rem;
+    letter-spacing: normal;
+    font-size: var(--fs-base);
+    line-height: 1.6;
 }
+
+main h1 { font-size: var(--fs-max); }
+main h2 { font-size: var(--fs-h2); }
+main h3 { font-size: var(--fs-h3); }
+main h5 { font-size: var(--fs-h5); }
+main h6 { font-size: var(--fs-base); }
 
 main {
     background-color: #c2e1f3c7;
@@ -130,7 +144,7 @@ a.nav-page-link {
     text-decoration: none;
     padding: 0.3rem 0;
     margin-bottom: 0.6rem;
-    font-size: 1rem;
+    font-size: var(--fs-base);
     transition: color 0.2s;
 }
 
@@ -162,6 +176,13 @@ a.nav-page-link.active {
         text-align: center;
         margin-bottom: 0;
     }
+}
+
+.recording-meta {
+    font-size: var(--fs-min);
+    color: #2c3e50;
+    opacity: 0.85;
+    margin-bottom: 1rem;
 }
 
 /* Project cards (software page) */
@@ -198,7 +219,7 @@ a.nav-page-link.active {
 }
 
 .blog-post-date {
-    font-size: 0.82rem;
+    font-size: var(--fs-min);
     color: #2c3e50;
     opacity: 0.65;
     margin-bottom: 0.2rem;
@@ -206,13 +227,13 @@ a.nav-page-link.active {
 }
 
 .blog-post-title {
-    font-size: 1.25rem;
+    font-size: var(--fs-h3);
     color: #2c3e50;
     margin-bottom: 0.75rem;
 }
 
 .blog-post-content {
-    font-size: 0.97rem;
+    font-size: var(--fs-base);
 }
 
 .blog-post-images {
@@ -223,10 +244,11 @@ a.nav-page-link.active {
 }
 
 .blog-post-images img {
-    height: auto;
+    height: 260px;
+    width: auto;
     border: 3px solid #1a1a1a;
     border-radius: 4px;
-    flex: 1 1 auto;
-    min-width: 200px;
+    object-fit: cover;
+    flex: 0 0 auto;
     max-width: 100%;
 }

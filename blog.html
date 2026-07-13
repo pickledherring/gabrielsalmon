@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Gabriel Salmon - Projects</title>
+    <meta charset="utf-8">
+    <title>Blog - Gabriel Salmon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Build notes on a 4-wheel mecanum rover">
+    <link rel="canonical" href="https://gabrielsalmon.com/blog">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog - Gabriel Salmon">
+    <meta property="og:description" content="Build notes on a 4-wheel mecanum rover">
+    <meta property="og:image" content="https://gabrielsalmon.com/images/rover_chassis.jpg">
+    <meta property="og:url" content="https://gabrielsalmon.com/blog">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <div class="container-fluid">
@@ -16,7 +28,7 @@
                     <a href="index.html" class="nav-page-link">Home</a>
                     <a href="performance.html" class="nav-page-link">Performance</a>
                     <a href="software.html" class="nav-page-link">Software</a>
-                    <a href="projects.html" class="nav-page-link active">Projects</a>
+                    <a href="blog.html" class="nav-page-link active">Blog</a>
                 </div>
             </div>
 
@@ -25,7 +37,7 @@
                 <main class="container min-vh-100 d-flex flex-column g-0 border-start border-end border-dark rounded main-container">
                     <div class="row my-4">
                         <div class="col">
-                            <h1 class="text-center">Gabriel Salmon</h1>
+                            <h1 class="text-center">Blog</h1>
                             <br>
                             <hr class="grey-border">
                         </div>
@@ -38,18 +50,39 @@
                             <section class="px-4 mb-5 mt-4">
 
                                 <article class="blog-post">
+                                    <p class="blog-post-date">June 22, 2026</p>
+                                    <h3 class="blog-post-title">Wiring Up</h3>
+                                    <div class="blog-post-content">
+                                        <p>
+                                            Got all four drivers wired to the perfboard power rails and the motors connected. Immediately blew a fuse. The Nano setup took longer than I expected. The factory image hung on boot, so I flashed JetPack 4.6.6 fresh from a microSD, forgot the password flashed again.
+                                        </p>
+                                        <p>
+                                           The Jetson Nano has no software PWM, but it does have two hardware PWM channels on pins 32 and 33, disabled by default. I found this in someone https://www.seeedstudio.com/blog/2020/05/27/configure-pwm-output-on-jetson-nano-m. The fix is running jetson-io.py to enable them. Once that was done, the first motor spun immediately.
+                                        </p>
+                                        <p>
+                                            Two PWM channels isn't enough for four motors, so I moved to a PCA9685. It talks to the Nano over I2C on pins 3 and 5, and I ran a PWM signal line from each of its 16 channels to the drivers. For the Nano's power I'm building a 5V pack from 18650 cells in parallel through an XL6009 boost converter.
+                                        </p>
+                                    </div>
+                                    <div class="blog-post-images">
+                                        <img src="images/rover_chassis.jpg" alt="Top-down view of the rover chassis with four mecanum wheels, motors, and perfboard">
+                                        <img src="images/rover_assembled.jpg" alt="The rover assembled with the Jetson Nano mounted and all four drivers wired">
+                                        <img src="images/jetson_pwm_pins.jpg" alt="Jetson Expansion Header Tool with hardware PWM enabled on pins 32 and 33">
+                                    </div>
+                                </article>
+
+                                <article class="blog-post">
                                     <p class="blog-post-date">June 2, 2026</p>
                                     <h3 class="blog-post-title">Picking Up an Old Project</h3>
                                     <div class="blog-post-content">
                                         <p>
-                                            I'm picking up an old project that's been restarted a couple times — my 4-wheel rover. A prior model was outfitted with two L298N dual drivers, regular wheels, and a plastic chassis. That version was stolen and has had those parts replaced with TB9051FTG drivers, mecanum wheels, and a metal chassis. Aluminum, probably.
+                                            I'm picking up an old project I've restarted a couple of times: my 4-wheel rover. The first build ran two L298N dual drivers on regular wheels and a plastic chassis. That one got stolen. The replacement uses TB9051FTG drivers, mecanum wheels, and a metal chassis.
                                         </p>
                                         <p>
-                                            The motors are powered with two LiPo 3.7V batteries with a blade fuse soldered on the positive line, with XT30s on the end. That's all so far. I need to keep ordering new pieces and parts — getting to be an expensive robot.
+                                            The motors run off two 3.7V LiPo batteries with a blade fuse soldered onto the positive line and XT30s on the ends. That's as far as I've gotten. I need to keep ordering parts, and it's turning into an expensive robot.
                                         </p>
                                     </div>
                                     <div class="blog-post-images">
-                                        <!-- images go here -->
+                                        <img src="images/boost_converter.jpg" alt="XL6009 boost converter and 18650 batteries in their holders">
                                     </div>
                                 </article>
 
@@ -62,13 +95,12 @@
 
                     <footer class="my-4 px-3 px-md-5">
                         <div class="row">
-                            <div class="col-12 col-md-4">
+                            <div class="col-12 col-md-6">
                                 <p class="text-center">Contact: gtsalmon@gmail.com</p>
                             </div>
-                            <div class="col-12 col-md-4">
-                                <p class="text-center">All rights reserved</p>
+                            <div class="col-12 col-md-6">
+                                <p class="text-center">&copy; Gabriel Salmon 2026</p>
                             </div>
-                            <div class="col-md-4 d-none d-md-block"></div>
                         </div>
                     </footer>
                 </main>

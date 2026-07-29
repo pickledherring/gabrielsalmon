@@ -96,7 +96,7 @@ a.nav-page-link.active {
     text-decoration: underline;
 }
 
-/* 5. Performance cards & icons (performance page) -------------------------- */
+/* 5. Performance cards & social icons (performance page) -------------------------- */
 .performance-card {
     transition: transform 0.2s, box-shadow 0.2s;
     border-width: 3px !important;
@@ -133,6 +133,27 @@ a.nav-page-link.active {
     flex-shrink: 0;
     border: 2px solid rgba(255,255,255,0.3);
     font-size: 1.5rem;   /* icon glyph size — decorative, not body text */
+}
+
+.social-icon-circle-dark {
+    border-color: rgba(44,62,80,0.4);
+    background: rgba(44,62,80,0.08);
+}
+
+/* Social link cards (software page, Connect section) */
+.social-card {
+    background: rgba(70,47,70,0.1);
+    border: 2px solid rgba(44,62,80,0.3);
+}
+
+.social-card-title {
+    color: #2c3e50;
+}
+
+.social-card-subtitle {
+    font-size: var(--fs-min);
+    color: #2c3e50;
+    opacity: 0.7;
 }
 
 /* 6. Recordings — lite-youtube embeds (performance page) ------------------- */

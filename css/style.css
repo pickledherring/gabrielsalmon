@@ -45,11 +45,15 @@ main h5 { font-size: var(--fs-h5); }
 main h6 { font-size: var(--fs-base); }
 
 /* 3. Layout ---------------------------------------------------------------- */
+.main-col {
+    max-width: fit-content;
+}
+
 .main-container {
     position: relative;
-    /* margin-left: auto !important; */
-    /* margin-right: auto !important; */
-    max-width: 1000px;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    max-width: 1200px;
 }
 
 .grey-border   { border-color: #2c3e50 !important; border-width: 3px !important; }
@@ -116,7 +120,7 @@ a.nav-page-link.active {
     flex-shrink: 0;
 }
 
-/* Round badge behind the social SVG icons (software page Connect section) */
+/* Round badge behind social SVG icons */
 .social-icon-circle {
     width: 50px;
     height: 50px;
@@ -131,12 +135,7 @@ a.nav-page-link.active {
     font-size: 1.5rem;   /* icon glyph size — decorative, not body text */
 }
 
-/* 6. Recordings — lite-youtube embeds (performance page) -------------------
-   The lite-youtube-embed library supplies its own CSS: it sets the element to
-   display:block, a 16:9 ratio (via ::after padding), and the play button to
-   cover the whole area (.lty-playbtn { width/height: 100% }). We only cap the
-   width and center it. Do NOT add aspect-ratio here (it double-sizes the box)
-   and do NOT add a global `button` rule (it clamps the play button). */
+/* 6. Recordings — lite-youtube embeds (performance page) ------------------- */
 .recording lite-youtube {
     width: 100%;
     max-width: 720px;
@@ -226,7 +225,7 @@ a.nav-page-link.active {
         position: static;
         flex-direction: row;
         flex-wrap: wrap;
-        align-items: center;
+        align-items: right;
         justify-content: center;
         border-right: none;
         border-bottom: 3px solid #2c3e50;

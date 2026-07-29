@@ -47,8 +47,9 @@ main h6 { font-size: var(--fs-base); }
 /* 3. Layout ---------------------------------------------------------------- */
 .main-container {
     position: relative;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    /* margin-left: auto !important; */
+    /* margin-right: auto !important; */
+    max-width: 1000px;
 }
 
 .grey-border   { border-color: #2c3e50 !important; border-width: 3px !important; }

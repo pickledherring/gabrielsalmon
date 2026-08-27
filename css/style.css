@@ -1,28 +1,23 @@
 /* ==========================================================================
-   gabrielsalmon.com styles
    Sections:
      1. Type scale (variables)
      2. Base / typography
      3. Layout (container, borders)
      4. Navigation
-     5. Components — performance cards & icons
-     6. Components — recordings (lite-youtube)
-     7. Components — software project cards
-     8. Components — blog posts
-     9. Responsive
+     5. performance cards & icons
+     6. recordings
+     7. lessons
+     8. Responsive
    ========================================================================== */
 
-/* 1. Type scale ------------------------------------------------------------
-   Evenly stepped from the smallest text (recording meta, --fs-min) up to the
-   largest (page title h1, --fs-max). Every font-size on the site uses one of
-   these so the scale stays consistent. */
+/* 1. Type scale ------------------------------------------------------------ */
 :root {
-    --fs-min: 1.05rem;   /* recording meta / blog date — smallest text */
-    --fs-base: 1.3rem;   /* body copy, nav links, card sub-labels */
-    --fs-h5: 1.55rem;    /* card titles (h5) */
-    --fs-h3: 1.8rem;     /* recording / blog post titles (h3) */
-    --fs-h2: 2.05rem;    /* section headings (h2) */
-    --fs-max: 2.5rem;    /* page title (h1) — largest text */
+    --fs-min: 1.2rem;   /* recording meta / fine print — smallest text */
+    --fs-base: 1.3rem;   /* body copy, card sub-labels */
+    --fs-h5: 1.7rem;    /* card titles, nav links (h5) */
+    --fs-h3: 1.8rem;     /* recording titles (h3) */
+    --fs-h2: 2.5rem;    /* section headings (h2) */
+    --fs-max: 3.3rem;    /* page title (h1) — largest text */
 }
 
 /* 2. Base / typography ----------------------------------------------------- */
@@ -44,15 +39,35 @@ main h3 { font-size: var(--fs-h3); }
 main h5 { font-size: var(--fs-h5); }
 main h6 { font-size: var(--fs-base); }
 
+/* In-page text links */
+a.body-link {
+    color: #8b4789;
+    text-decoration: none;
+    font-style: italic;
+}
+
+a.body-link::after {
+    content: " \2192";
+    font-style: normal;
+}
+
+a.body-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 /* 3. Layout ---------------------------------------------------------------- */
+/* fit-content shrinks the column to its content's preferred width. Most pages
+   have content wider than col-lg-8, so they clamp there and match. Recordings'
+   widest element is the embed, which lite-yt-embed.css caps at 720px, so that
+   page alone shrank. min-width holds the floor; the video keeps its own size. */
 .main-col {
     max-width: fit-content;
+    min-width: min(66.66%, 100%);
 }
 
 .main-container {
     position: relative;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
     max-width: 1200px;
 }
 
@@ -62,6 +77,18 @@ main h6 { font-size: var(--fs-base); }
 /* Translucent fill behind bordered image/content boxes */
 div.border {
     background-color: rgba(169, 180, 212, 0.252);
+}
+
+/* Home header — headshot left, name stacked right */
+.home-headshot {
+    width: 100%;
+    max-width: 350px;
+}
+
+h1.home-name {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--fs-max);
 }
 
 /* 4. Navigation ------------------------------------------------------------ */
@@ -81,9 +108,8 @@ a.nav-page-link {
     text-align: right;
     color: #ebe5d9;
     text-decoration: none;
-    padding: 0.3rem 0;
-    margin-bottom: 0.6rem;
-    font-size: var(--fs-base);
+    margin-bottom: 2rem;
+    font-size: var(--fs-h5);
     transition: color 0.2s;
 }
 
@@ -96,7 +122,7 @@ a.nav-page-link.active {
     text-decoration: underline;
 }
 
-/* 5. Performance cards & social icons (performance page) -------------------------- */
+/* 5. Performance cards & icons (performance page) -------------------------- */
 .performance-card {
     transition: transform 0.2s, box-shadow 0.2s;
     border-width: 3px !important;
@@ -115,45 +141,9 @@ a.nav-page-link.active {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;   /* emoji glyph size — decorative, not body text */
+    font-size: 2rem;   
     margin-right: 1rem;
     flex-shrink: 0;
-}
-
-/* Round badge behind social SVG icons */
-.social-icon-circle {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-    flex-shrink: 0;
-    border: 2px solid rgba(255,255,255,0.3);
-    font-size: 1.5rem;   /* icon glyph size — decorative, not body text */
-}
-
-.social-icon-circle-dark {
-    border-color: rgba(44,62,80,0.4);
-    background: rgba(44,62,80,0.08);
-}
-
-/* Social link cards (software page, Connect section) */
-.social-card {
-    background: rgba(70,47,70,0.1);
-    border: 2px solid rgba(44,62,80,0.3);
-}
-
-.social-card-title {
-    color: #2c3e50;
-}
-
-.social-card-subtitle {
-    font-size: var(--fs-min);
-    color: #2c3e50;
-    opacity: 0.7;
 }
 
 /* 6. Recordings — lite-youtube embeds (performance page) ------------------- */
@@ -171,75 +161,91 @@ a.nav-page-link.active {
     margin-bottom: 1rem;
 }
 
-/* 7. Software project cards (software page) -------------------------------- */
-.project-card {
-    overflow: hidden;
-    margin-bottom: 2rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+/* 7. Lessons — rates, details, inquiry form (lessons page) ----------------- */
+.rate-sentence {
+    font-size: var(--fs-h5);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.rate-sentence strong {
+    color: #8b4789;
+    font-weight: normal;
 }
 
-.project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-.project-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-    background-color: rgba(0,0,0,0.1);
-}
-
-.project-card-body {
-    padding: 1.25rem;
-}
-
-/* 8. Blog posts (blog page) ------------------------------------------------ */
-.blog-post {
+.lesson-option {
     padding-left: 1.5rem;
     border-left: 4px solid #8b4789;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
-.blog-post-date {
+.lesson-note {
     font-size: var(--fs-min);
-    color: #2c3e50;
-    opacity: 0.65;
-    margin-bottom: 0.2rem;
-    letter-spacing: 0.05rem;
+    opacity: 0.75;
 }
 
-.blog-post-title {
-    font-size: var(--fs-h3);
-    color: #2c3e50;
-    margin-bottom: 0.75rem;
+/* Inquiry form — single column */
+.lesson-form {
+    max-width: 34rem;
+    margin: 0 auto;
 }
 
-.blog-post-content {
+.lesson-form label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #000;
+}
+
+.lesson-form input,
+.lesson-form textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: var(--fs-min);
+    padding: 0.5rem 0.65rem;
+    border: 2px solid rgba(44,62,80,0.35);
+    border-radius: 0.375rem;
+    background: rgba(255,255,255,0.6);
+    color: #000;
+}
+
+.lesson-form ::placeholder {
+    color: rgba(0,0,0,0.5);
+    opacity: 1;   /* Firefox dims placeholders by default */
+}
+
+.lesson-form input:focus,
+.lesson-form textarea:focus {
+    outline: none;
+    border-color: #8b4789;
+}
+
+.lesson-form .form-row {
+    margin-bottom: 1rem;
+}
+
+.lesson-submit {
+    font-family: inherit;
     font-size: var(--fs-base);
+    padding: 0.5rem 1.75rem;
+    color: #ebe5d9;
+    background: #8b4789;
+    border: 3px solid #8b4789;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
 }
 
-.blog-post-images {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+.lesson-submit:hover {
+    background: transparent;
+    color: #8b4789;
+}
+
+.form-status {
     margin-top: 1rem;
+    font-size: var(--fs-min);
+    color: #000;
 }
 
-.blog-post-images img {
-    height: 260px;
-    width: auto;
-    border: 3px solid #1a1a1a;
-    border-radius: 4px;
-    object-fit: cover;
-    flex: 0 0 auto;
-    max-width: 100%;
-}
-
-/* 9. Responsive ------------------------------------------------------------ */
+/* 8. Responsive ------------------------------------------------------------ */
 @media (max-width: 991px) {
     /* Nav collapses from a sticky sidebar to a horizontal bar */
     .vertical-nav {

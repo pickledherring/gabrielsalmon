@@ -1,30 +1,16 @@
 // functions/api/lesson-inquiry.js
 // Handles the lessons form end to end: validates, checks the monthly cap
-// in KV, then sends via Resend. Renders its response by fetching the real
-// lessons.html and swapping the <!--BANNER--> placeholder
+// in KV, then sends via Resend. Always finishes with a redirect back to
+// lessons.html (redirect-after-POST, so a reload never resubmits the form),
+// carrying a ?sent=1 or ?error=<code> query param that lessons.html reads
+// on load to show the matching banner text.
 
 const MONTHLY_CAP = 250;
 
-function escapeHtml(value) {
-    return value
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
-}
-
-async function renderWithBanner(request, kind, message) {
-    const pageUrl = new URL('/lessons.html', request.url);
-    const page = await fetch(pageUrl);
-    const html = await page.text();
-
-    const banner = `<div class="form-banner form-banner-${kind}" role="status">${escapeHtml(message)}</div>`;
-    const out = html.replace('<!--BANNER-->', banner);
-
-    return new Response(out, {
-        status: kind === 'success' ? 200 : 400,
-        headers: { 'Content-Type': 'text/html' },
-    });
+function redirectTo(request, query) {
+    const url = new URL('/lessons.html', request.url);
+    url.search = query;
+    return Response.redirect(url, 303);
 }
 
 export async function onRequestPost({ request, env }) {
@@ -32,7 +18,7 @@ export async function onRequestPost({ request, env }) {
     try {
         form = await request.formData();
     } catch {
-        return renderWithBanner(request, 'error', 'Something went wrong reading the form. Please try again.');
+        return redirectTo(request, 'error=form');
     }
 
     const name = (form.get('name') || '').toString().trim().slice(0, 200);
@@ -40,14 +26,14 @@ export async function onRequestPost({ request, env }) {
     const body = (form.get('message') || '').toString().trim().slice(0, 4000);
 
     if (!name || !contact || !body) {
-        return renderWithBanner(request, 'error', 'Please fill out every field.');
+        return redirectTo(request, 'error=fields');
     }
 
     const monthKey = new Date().toISOString().slice(0, 7); // "2026-08"
     const current = parseInt((await env.FORM_COUNTS.get(monthKey)) || '0', 10);
 
     if (current >= MONTHLY_CAP) {
-        return renderWithBanner(request, 'error', 'This form is full for the month. Please email me directly.');
+        return redirectTo(request, 'error=cap');
     }
 
     const sent = await fetch('https://api.resend.com/emails', {
@@ -65,10 +51,10 @@ export async function onRequestPost({ request, env }) {
     });
 
     if (!sent.ok) {
-        return renderWithBanner(request, 'error', 'That did not send. Please email me directly.');
+        return redirectTo(request, 'error=send');
     }
 
     await env.FORM_COUNTS.put(monthKey, String(current + 1));
 
-    return renderWithBanner(request, 'success', 'Thanks! I will get back to you soon.');
+    return redirectTo(request, 'sent=1');
 }

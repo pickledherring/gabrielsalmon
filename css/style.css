@@ -81,7 +81,7 @@ div.border {
 
 /* Home header — headshot left, name stacked right */
 .home-headshot {
-    width: 100%;
+    width: 50%;
     max-width: 350px;
 }
 

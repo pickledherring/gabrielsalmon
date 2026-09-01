@@ -20,20 +20,28 @@
     --fs-h2: 2.5rem;    /* section headings (h2) */
     --fs-max: 3.3rem;    /* page title (h1) — largest text */
 
-    /* Palette — every color the site uses lives here */
-    --c-dark: #14191f;      /* page background, side panels, hr rules */
-    --c-panel: #c2e1f3c7;   /* main column background */
-    --c-purple: #6d2f6b;    /* links, borders, buttons */
-    --c-purple-lt: #a85fa6; /* nav hover/active, focus rings */
-    --c-slate: #2c3e50;     /* nav divider, CV rule, meta text */
-    --c-cream: #ebe5d9;     /* nav link text, button text */
-    --c-fill: rgba(169, 180, 212, 0.252); /* translucent box fill */
+    --p-bg: #0F1115;
+    --p-sidebar: #0A0C0F;
+    --p-body: #E4E2DD;
+    --p-heading: #F5F3EE;
+    --p-accent: #749e6e;
+    --p-accent-hover: #54774f;
+    --p-accent-rgb: 79, 168, 232;   /* accent as channels, for translucent fills */
+
+    --c-dark: var(--p-sidebar);     /* page/sidebar background, hr rules */
+    --c-panel: var(--p-bg);         /* main column background */
+    --c-green: var(--p-accent);        /* links, borders, buttons */
+    --c-green-lt: var(--p-accent-hover); /* nav hover/active, focus rings */
+    --c-slate: rgba(var(--p-accent-rgb), 0.35); /* nav divider, CV rule */
+    --c-cream: var(--p-body);       /* nav link text, button text */
+    --c-fill: rgba(var(--p-accent-rgb), 0.07); /* translucent box fill */
 }
 
 /* 2. Base / typography */
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: var(--c-dark);
+    color: var(--p-body);
     letter-spacing: normal;
     font-size: var(--fs-base);
     line-height: 1.6;
@@ -41,6 +49,11 @@ body {
 
 main {
     background-color: var(--c-panel);
+    color: var(--p-body);
+}
+
+main h1, main h2, main h3, main h4, main h5, main h6 {
+    color: var(--p-heading);
 }
 
 main h1 { font-size: var(--fs-max); }
@@ -51,7 +64,7 @@ main h6 { font-size: var(--fs-base); }
 
 /* In-page text links */
 a.body-link {
-    color: var(--c-purple);
+    color: var(--c-green);
     text-decoration: none;
     font-style: italic;
 }
@@ -62,6 +75,7 @@ a.body-link::after {
 }
 
 a.body-link:hover {
+    color: var(--p-accent-hover);
     text-decoration: underline;
     text-underline-offset: 3px;
 }
@@ -84,19 +98,23 @@ a.body-link:hover {
 
 hr.grey-border {
     border: 0 !important;
-    border-top: 3px solid var(--c-dark) !important;
+    border-top: 3px solid rgba(var(--p-accent-rgb), 0.28) !important;
     opacity: 1 !important;
     background: none !important;
 }
 
 .grey-border {
-    border-color: var(--c-dark) !important;
+    border-color: rgba(var(--p-accent-rgb), 0.28) !important;
     border-width: 3px !important;
 }
 
 .purple-border {
-    border-color: var(--c-purple) !important; 
+    border-color: var(--p-accent) !important;
     border-width: 3px !important;
+}
+
+main.main-container {
+    border-color: rgba(var(--p-accent-rgb), 0.22) !important;
 }
 
 div.border {
@@ -112,11 +130,11 @@ div.border {
     background:
         linear-gradient(
             to bottom,
-            rgba(143, 14, 68, 0.22) 0%,
-            rgba(143, 14, 68, 0.18) 25%,
-            rgba(143, 14, 68, 0.13) 50%,
-            rgba(143, 14, 68, 0.07) 75%,
-            rgba(143, 14, 68, 0.01) 100%
+            rgba(var(--p-accent-rgb), 0.20) 0%,
+            rgba(var(--p-accent-rgb), 0.16) 25%,
+            rgba(var(--p-accent-rgb), 0.11) 50%,
+            rgba(var(--p-accent-rgb), 0.06) 75%,
+            rgba(var(--p-accent-rgb), 0.01) 100%
         );
 }
 .header-row h1 {
@@ -137,8 +155,8 @@ div.border {
 
 .home-headshot img {
     border-radius: 0.375rem;
-    border: 1px solid rgba(109, 47, 107, 0.35);
-    box-shadow: 0 3px 10px rgba(20, 25, 31, 0.16);
+    border: 1px solid rgba(var(--p-accent-rgb), 0.35);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
 }
 
 .name-box {
@@ -168,7 +186,7 @@ h1.home-name {
     flex-direction: column;
     align-items: flex-end;
     padding: 1rem .75rem 1rem .5rem;
-    border-right: 3px solid var(--c-slate);
+    border-right: 3px solid var(--p-accent-hover);
     margin-top: 2rem;
 }
 
@@ -189,11 +207,11 @@ a.nav-page-link {
 }
 
 a.nav-page-link:hover {
-    color: var(--c-purple-lt);
+    color: var(--p-accent-hover);
 }
 
 a.nav-page-link.active {
-    color: var(--c-purple-lt);
+    color: var(--p-accent);
     text-decoration: underline;
 }
 
@@ -230,11 +248,11 @@ a.nav-page-link.active {
 }
 
 .nav-toggle:hover span {
-    background-color: var(--c-purple-lt);
+    background-color: var(--p-accent-hover);
 }
 
 .nav-toggle-box:focus-visible + .nav-toggle {
-    outline: 2px solid var(--c-purple-lt);
+    outline: 2px solid var(--c-green-lt);
     outline-offset: 3px;
     border-radius: 3px;
 }
@@ -243,7 +261,7 @@ a.nav-page-link.active {
 .performance-card {
     transition: transform 0.2s, box-shadow 0.2s;
     border-width: 3px !important;
-    border: 3px solid var(--c-purple-lt) !important;
+    border: 3px solid var(--p-accent) !important;
     border-radius: 0.5rem;
     padding: 1rem;
     margin-bottom: 2rem;
@@ -254,13 +272,27 @@ a.nav-page-link.active {
 
 .performance-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.45);
+    border-color: var(--p-accent-hover) !important;
+}
+
+.performance-card .text-dark {
+    color: var(--p-body) !important;
+}
+
+.performance-card h5.text-dark {
+    color: var(--p-heading) !important;
+}
+
+.performance-card strong {
+    color: var(--p-accent);
+    font-weight: normal;
 }
 
 .performance-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, rgba(70, 47, 70, 0.5), rgba(70, 47, 70, 0.7));
+    background: linear-gradient(135deg, rgba(var(--p-accent-rgb), 0.18), rgba(var(--p-accent-rgb), 0.32));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -279,8 +311,8 @@ a.nav-page-link.active {
 
 .recording-meta {
     font-size: var(--fs-min);
-    color: var(--c-slate);
-    opacity: 0.85;
+    color: var(--p-body);
+    opacity: 0.7;
     margin-bottom: 1rem;
 }
 
@@ -288,8 +320,12 @@ a.nav-page-link.active {
 .cv-col         { flex: 6; }
 
 .cv-col {
-    border-left: 3px solid var(--c-slate);
+    border-left: 3px solid var(--p-accent);
     padding-left: 1.25rem;
+}
+
+.cv-group h3 {
+    color: var(--p-accent);
 }
 
 .cv-table {
@@ -359,13 +395,13 @@ a.nav-page-link.active {
     margin-bottom: 1.5rem;
 }
 .rate-sentence strong {
-    color: var(--c-purple);
+    color: var(--p-accent);
     font-weight: normal;
 }
 
 .lesson-option {
     padding-left: 1.5rem;
-    border-left: 4px solid var(--c-purple);
+    border-left: 4px solid var(--p-accent);
     margin-bottom: 1.5rem;
 }
 
@@ -385,15 +421,15 @@ a.nav-page-link.active {
 }
 
 .form-banner-success {
-    border: 2px solid var(--c-purple);
-    background: rgba(139,71,137,0.1);
-    color: var(--c-slate);
+    border: 2px solid var(--p-accent);
+    background: rgba(var(--p-accent-rgb), 0.12);
+    color: var(--p-body);
 }
 
 .form-banner-error {
-    border: 2px solid #a83232;
-    background: rgba(168,50,50,0.08);
-    color: #7a1f1f;
+    border: 2px solid #d05a5a;
+    background: rgba(208,90,90,0.12);
+    color: #f0b8b8;
 }
 
 /* Inquiry form — single column */
@@ -404,7 +440,7 @@ a.nav-page-link.active {
 
 .lesson-form label {
     display: block;
-    color: #000;
+    color: var(--p-body);
 }
 
 .lesson-form input,
@@ -413,21 +449,21 @@ a.nav-page-link.active {
     font-family: inherit;
     font-size: var(--fs-min);
     padding: 0.5rem 0.65rem;
-    border: 2px solid rgba(44,62,80,0.35);
+    border: 2px solid rgba(var(--p-accent-rgb), 0.30);
     border-radius: 0.375rem;
-    background: rgba(255,255,255,0.6);
-    color: #000;
+    background: rgba(255,255,255,0.05);
+    color: var(--p-body);
 }
 
 .lesson-form ::placeholder {
-    color: rgba(0,0,0,0.5);
+    color: rgba(255,255,255,0.42);
     opacity: 1;   /* Firefox dims placeholders by default */
 }
 
 .lesson-form input:focus,
 .lesson-form textarea:focus {
     outline: none;
-    border-color: var(--c-purple);
+    border-color: var(--c-green);
 }
 
 .lesson-form .form-row {
@@ -438,23 +474,24 @@ a.nav-page-link.active {
     font-family: inherit;
     font-size: var(--fs-base);
     padding: 0.5rem 1.75rem;
-    color: var(--c-cream);
-    background: var(--c-purple);
-    border: 3px solid var(--c-purple);
+    color: var(--p-bg);
+    background: var(--p-accent);
+    border: 3px solid var(--p-accent);
     border-radius: 0.375rem;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .lesson-submit:hover {
-    background: transparent;
-    color: var(--c-purple);
+    background: var(--p-accent-hover);
+    border-color: var(--p-accent-hover);
+    color: var(--p-bg);
 }
 
 .form-status {
     margin-top: 1rem;
     font-size: var(--fs-min);
-    color: #000;
+    color: var(--p-body);
 }
 
 .mailing-list-form {

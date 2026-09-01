@@ -15,27 +15,18 @@
     <meta property="og:url" content="https://gabrielsalmon.com/">
     <meta name="twitter:card" content="summary_large_image">
 
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="theme-a">
+<body data-page="home">
     <div class="container-fluid">
         <div class="row">
 
             <!-- Vertical Nav -->
             <div class="col-lg px-0 vertical-nav-col">
-                <nav class="vertical-nav">
-                    <input type="checkbox" id="nav-toggle-box" class="nav-toggle-box" aria-label="Toggle navigation">
-                    <label for="nav-toggle-box" class="nav-toggle" aria-hidden="true">
-                        <span></span><span></span>
-                    </label>
-                    <div class="nav-links">
-                        <a href="index.html" class="nav-page-link active">Home</a>
-                        <a href="upcoming.html" class="nav-page-link">Upcoming Performances</a>
-                        <a href="previous.html" class="nav-page-link">Previous Work</a>
-                        <a href="lessons.html" class="nav-page-link">Lessons</a>
-                    </div>
-                </nav>
+                <div data-include="partials/nav.html"></div>
             </div>
 
             <!-- Main Content -->
@@ -91,16 +82,7 @@
 
                     <hr class="grey-border mt-auto">
 
-                    <footer class="my-4 px-3 px-md-5">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p class="text-center">Contact: gtsalmon@gmail.com</p>
-                            </div>
-                            <div class="col-md-6">
-                                <p class="text-center">&copy; Gabriel Salmon 2026</p>
-                            </div>
-                        </div>
-                    </footer>
+                    <div data-include="partials/footer.html"></div>
                 </main>
             </div>
 
@@ -113,5 +95,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="js/partials.js"></script>
 </body>
 </html>

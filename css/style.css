@@ -104,9 +104,41 @@ div.border {
 }
 
 /* Home header */
+.header-row {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1rem 0.75rem;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(143, 14, 68, 0.22) 0%,
+            rgba(143, 14, 68, 0.18) 25%,
+            rgba(143, 14, 68, 0.13) 50%,
+            rgba(143, 14, 68, 0.07) 75%,
+            rgba(143, 14, 68, 0.01) 100%
+        );
+}
+.header-row h1 {
+    margin-bottom: 0;
+    font-weight: normal;
+    font-variant: small-caps;
+    letter-spacing: 0.06em;
+}
+.header-row h1.home-name {
+    font-variant: normal;
+    letter-spacing: 0.02em;
+}
+
 .home-headshot {
     width: 50%;
     max-width: 290px;
+}
+
+.home-headshot img {
+    border-radius: 0.375rem;
+    border: 1px solid rgba(109, 47, 107, 0.35);
+    box-shadow: 0 3px 10px rgba(20, 25, 31, 0.16);
 }
 
 .name-box {
@@ -152,7 +184,7 @@ a.nav-page-link {
     color: var(--c-cream);
     text-decoration: none;
     margin-bottom: 2rem;
-    font-size: var(--fs-h3);
+    font-size: var(--fs-h5);
     transition: color 0.2s;
 }
 

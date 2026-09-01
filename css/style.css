@@ -12,6 +12,7 @@
 
 /* 1. Type scale ------------------------------------------------------------ */
 :root {
+    --fs-sub-min: .9rem;
     --fs-min: 1.2rem;   /* recording meta / fine print — smallest text */
     --fs-base: 1.3rem;   /* body copy, card sub-labels */
     --fs-h5: 1.7rem;    /* card titles, nav links (h5) */
@@ -201,7 +202,6 @@ a.nav-page-link.active {
 /* 6. Recordings — lite-youtube embeds (performance page) ------------------- */
 .recording lite-youtube {
     width: 100%;
-    max-width: 1000px;
     margin: 0 auto;
     border-radius: 6px;
 }
@@ -211,6 +211,78 @@ a.nav-page-link.active {
     color: #2c3e50;
     opacity: 0.85;
     margin-bottom: 1rem;
+}
+
+.recordings-col { flex: 7; }
+.cv-col         { flex: 5; }
+
+.cv-col {
+    border-left: 3px solid #2c3e50;
+    padding-left: 1.25rem;
+}
+
+.cv-table {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr) auto;
+    column-gap: 0.5rem;
+    row-gap: 0.3rem;
+    align-items: baseline;
+    font-size: var(--fs-sub-min);
+    line-height: 1.25;
+}
+
+.cv-group {
+    display: contents;
+}
+
+.cv-group h3 {
+    grid-column: 1 / -1;
+    font-size: var(--fs-min);
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 1rem 0 0.1rem;
+}
+
+.cv-group:first-child h3 {
+    margin-top: 0;
+}
+
+.cv-entry {
+    display: contents;
+}
+
+.cv-role {
+    font-weight: bold;
+}
+
+.cv-work {
+    font-style: italic;
+}
+
+.cv-work em {
+    font-style: inherit;
+}
+
+.cv-company {
+    grid-column: 3;
+    opacity: 0.8;
+}
+
+.cv-year {
+    grid-column: 4;
+    text-align: right;
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+.cv-role:has(+ .cv-company) {
+    grid-column: 1;
+}
+
+.cv-company:last-child {
+    grid-column: 2 / -1;
 }
 
 /* 7. Lessons — rates, details, inquiry form (lessons page) ----------------- */
@@ -341,6 +413,20 @@ a.nav-page-link.active {
         width: 100%;
         flex: 0 0 100%;
         max-width: 100%;
+    }
+
+    /* Recordings and CV stack: videos on top, CV below */
+    .recordings-col,
+    .cv-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .cv-col {
+        border-left: none;
+        border-top: 3px solid #2c3e50;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
     }
 
     /* Nav collapses from a sticky sidebar to a top bar */

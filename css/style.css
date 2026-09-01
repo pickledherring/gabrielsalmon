@@ -232,7 +232,7 @@ a.nav-page-link.active {
     line-height: 0;
 }
 
-/* Two bars, drawn as spans so they can animate into an X */
+/* Two bars drawn as spans so they can animate into an X */
 .nav-toggle span {
     display: block;
     width: 1.85rem;
@@ -321,7 +321,8 @@ a.nav-page-link.active {
 
 .cv-col {
     border-left: 3px solid var(--p-accent);
-    padding-left: 1.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .cv-group h3 {
@@ -331,7 +332,7 @@ a.nav-page-link.active {
 .cv-table {
     display: grid;
 
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr) minmax(0, .9fr) auto;
     column-gap: 0.5rem;
     row-gap: 0.3rem;
     align-items: baseline;
@@ -498,19 +499,7 @@ a.nav-page-link.active {
     max-width: 45rem !important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* 8. Responsive ------------------------------------------------------------ */
+/* 8. Responsive */
 @media (max-width: 1150px) {
     main h1 { font-size: var(--fs-h2); }
     main h2 { font-size: var(--fs-h3); }
@@ -534,7 +523,6 @@ a.nav-page-link.active {
         max-width: 100%;
     }
 
-    /* Recordings and CV stack: videos on top, CV below */
     .recordings-col,
     .cv-col {
         flex: 0 0 100%;
@@ -548,7 +536,6 @@ a.nav-page-link.active {
         padding-top: 1.5rem;
     }
 
-    /* Nav collapses from a sticky sidebar to a top bar */
     .vertical-nav {
         position: static;
         flex-direction: row;
@@ -594,7 +581,7 @@ a.nav-page-link.active {
         margin-left: 1.5rem;
     }
 
-    /* Two bars → X: each meets in the middle, then rotates opposite ways */
+    /* Two bars → X */
     .nav-toggle-box:checked + .nav-toggle span:nth-child(1) {
         transform: translateY(0.315rem) rotate(45deg);
     }
@@ -635,7 +622,7 @@ a.nav-page-link.active {
         margin-left: 0;
     }
 
-    /* Headshot and name stack so the image gets the full column width */
+    /* Headshot and name stack */
     .home-header-col {
         flex: 0 0 100%;
         max-width: 100%;

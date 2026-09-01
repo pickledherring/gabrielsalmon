@@ -36,13 +36,48 @@
                     </div>
                 </nav>
             </div>
-
+            
             <!-- Main Content -->
             <div class="col-lg-8 main-col">
-                <main class="min-vh-100 d-flex flex-column g-0 border-start border-end border-dark rounded main-container">
-                    <div class="row mt-4 mb-3">
+                <main class="min-vh-100 d-flex flex-column g-0 border-start border-end border-dark rounded main-container">        
+
+                    <div class="row mt-4 mb-3 header-row">
                         <div class="col">
                             <h1 class="text-center">Upcoming Performances</h1>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4 my-4">
+                        <div class="col">
+                            <!-- Mailing list -->
+                            <section class="mb-5 px-4">
+                                <h2 class="text-center mb-4">Follow along</h2>
+                
+                                <p class="text-center">
+                                    I will send you an email when I have a show coming up. You can unsubscribe at any time.
+                                </p>
+
+                                <div id="form-banner"></div>
+
+                                <form class="lesson-form mailing-list-form" action="/api/mailing-list" method="POST" data-success="Thanks. I will let you know when I have a concert coming up.">
+                                    <input type="hidden" name="list" value="performances">
+                
+                                    <div class="form-row">
+                                        <label for="follow-name">Name</label>
+                                        <input type="text" id="follow-name" name="name" maxlength="200" required>
+                                    </div>
+                
+                                    <div class="form-row">
+                                        <label for="follow-email">Email</label>
+                                        <input type="email" id="follow-email" name="email" maxlength="200" required>
+                                    </div>
+                
+                                    <div class="text-center">
+                                        <button type="submit" class="lesson-submit">Sign up</button>
+                                        <p class="form-status" id="form-status" role="status"></p>
+                                    </div>
+                                </form>
+                            </section>
                         </div>
                     </div>
 
@@ -54,7 +89,7 @@
                                 <h2 class="text-center mb-5">Upcoming Performances</h2>
 
                                 <a href="https://harmoniaseattle.org/concerts/2026-10-03/" target="_blank" rel="noopener" class="text-decoration-none">
-                                    <div class="border purple-border rounded p-4 mb-4 right-col performance-card d-flex align-items-start">
+                                    <div class="right-col performance-card d-flex align-items-start">
                                         <div class="performance-icon">🥁</div>
                                         <div class="flex-grow-1">
                                             <h5 class="text-dark">Baroque Bangers, Vol. 1</h5>
@@ -66,7 +101,7 @@
                                 </a>
 
                                 <a href="https://harmoniaseattle.org/concerts/2026-11-07/" target="_blank" rel="noopener" class="text-decoration-none">
-                                    <div class="border purple-border rounded p-4 mb-4 right-col performance-card d-flex align-items-start">
+                                    <div class="right-col performance-card d-flex align-items-start">
                                         <div class="performance-icon">⚓</div>
                                         <div class="flex-grow-1">
                                             <h5 class="text-dark">Rule, Britannia!</h5>
@@ -78,7 +113,7 @@
                                 </a>
 
                                 <a href="https://harmoniaseattle.org/concerts/2027-02-20/" target="_blank" rel="noopener" class="text-decoration-none">
-                                    <div class="border purple-border rounded p-4 mb-4 right-col performance-card d-flex align-items-start">
+                                    <div class="right-col performance-card d-flex align-items-start">
                                         <div class="performance-icon">🕯️</div>
                                         <div class="flex-grow-1">
                                             <h5 class="text-dark">Dark Choral</h5>
@@ -90,7 +125,7 @@
                                 </a>
 
                                 <a href="https://harmoniaseattle.org/concerts/2027-03-20/" target="_blank" rel="noopener" class="text-decoration-none">
-                                    <div class="border purple-border rounded p-4 mb-4 right-col performance-card d-flex align-items-start">
+                                    <div class="right-col performance-card d-flex align-items-start">
                                         <div class="performance-icon">🐑</div>
                                         <div class="flex-grow-1">
                                             <h5 class="text-dark">St. John Passion</h5>
@@ -102,7 +137,7 @@
                                 </a>
 
                                 <a href="https://harmoniaseattle.org/concerts/2027-05-01/" target="_blank" rel="noopener" class="text-decoration-none">
-                                    <div class="border purple-border rounded p-4 mb-4 right-col performance-card d-flex align-items-start">
+                                    <div class="right-col performance-card d-flex align-items-start">
                                         <div class="performance-icon">🇺🇸</div>
                                         <div class="flex-grow-1">
                                             <h5 class="text-dark">The Americans</h5>
@@ -114,36 +149,6 @@
                                 </a>
                             </section>
 
-                            <!-- <hr class="grey-border"> -->
-
-                            <!-- Mailing list -->
-                            <!-- <section class="mb-5 px-4">
-                                <h2 class="text-center mb-4">Follow along</h2>
-
-                                <p class="text-center">
-                                    I will send out an email when I have a show coming up, and you can unsubscribe at any time.
-                                </p>
-
-                                <form class="lesson-form" action="/api/lesson-inquiry" method="POST" data-success="Thanks. I will let you know when I have a concert coming up.">
-                                    <input type="hidden" name="list" value="performances">
-
-                                    <div class="form-row">
-                                        <label for="follow-name">Name</label>
-                                        <input type="text" id="follow-name" name="name" maxlength="200" required>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <label for="follow-email">Email</label>
-                                        <input type="email" id="follow-email" name="email" maxlength="200" required>
-                                    </div>
-
-                                    <div class="text-center">
-                                        <button type="submit" class="lesson-submit">Sign up</button>
-                                        <p class="form-status" id="form-status" role="status"></p>
-                                    </div>
-                                </form>
-                                
-                            </section> -->
 
                         </div>
                     </div>
@@ -172,6 +177,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <script src="js/lesson-form.js"></script>
+    <script src="js/form-banner.js"></script>
 </body>
 </html>

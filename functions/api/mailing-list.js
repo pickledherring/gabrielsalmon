@@ -1,13 +1,9 @@
-// Handles the lessons form end to end: validates, checks the monthly cap
-// in KV, then sends via Resend. Always finishes with a redirect back to
-// lessons.html (redirect-after-POST, so a reload never resubmits the form),
-// carrying a ?sent=1 or ?error=<code> query param that lessons.html reads
-// on load to show the matching banner text.
+// Handles the mailing list form end to end: validates, checks the monthly cap in KV, then sends via Resend
 
 const MONTHLY_CAP = 250;
 
 function redirectTo(request, query) {
-    const url = new URL('/lessons.html', request.url);
+    const url = new URL('/upcoming.html', request.url);
     url.search = query;
     return Response.redirect(url, 303);
 }
@@ -21,10 +17,9 @@ export async function onRequestPost({ request, env }) {
     }
 
     const name = (form.get('name') || '').toString().trim().slice(0, 200);
-    const contact = (form.get('contact') || '').toString().trim().slice(0, 200);
-    const body = (form.get('message') || '').toString().trim().slice(0, 4000);
+    const email = (form.get('email') || '').toString().trim().slice(0, 200);
 
-    if (!name || !contact || !body) {
+    if (!name || !email) {
         return redirectTo(request, 'error=fields');
     }
 
@@ -44,9 +39,9 @@ export async function onRequestPost({ request, env }) {
         body: JSON.stringify({
             from: env.INQUIRY_FROM,
             to: [env.INQUIRY_TO],
-            ...(/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(contact) ? { reply_to: contact } : {}),
-            subject: `New lesson inquiry from ${name}`,
-            text: `Name: ${name}\nContact: ${contact}\n\n${body}`,
+            reply_to: email,
+            subject: `New mailing list subscription from ${name}`,
+            text: `Name: ${name}\nEmail: ${email}`,
         }),
     });
 

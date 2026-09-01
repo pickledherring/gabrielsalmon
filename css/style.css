@@ -57,7 +57,7 @@ a.body-link:hover {
     text-underline-offset: 3px;
 }
 
-/* 3. Layout ---------------------------------------------------------------- */
+/* 3. Layout */
 .main-col {
     max-width: fit-content;
     min-width: min(66.66%, 100%);
@@ -78,6 +78,8 @@ div.border {
 }
 
 /* Home header */
+
+
 .home-headshot {
     width: 50%;
     max-width: 290px;
@@ -96,7 +98,7 @@ h1.home-name {
     margin-bottom: 0;
 }
 
-/* 4. Navigation ------------------------------------------------------------ */
+/* 4. Navigation */
 .vertical-nav {
     position: sticky;
     top: 2rem;
@@ -175,10 +177,14 @@ a.nav-page-link.active {
     border-radius: 3px;
 }
 
-/* 5. Performance cards & icons (performance page) -------------------------- */
+/* 5. Performance cards & icons */
 .performance-card {
     transition: transform 0.2s, box-shadow 0.2s;
     border-width: 3px !important;
+    border: 3px solid #c97fc7 !important;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
 }
 
 .performance-card:hover {
@@ -199,10 +205,10 @@ a.nav-page-link.active {
     flex-shrink: 0;
 }
 
-/* 6. Recordings — lite-youtube embeds (performance page) ------------------- */
+/* 6. Recordings */
 .recording lite-youtube {
     width: 100%;
-    margin: 0 auto;
+    margin: 2rem auto;
     border-radius: 6px;
 }
 
@@ -285,7 +291,7 @@ a.nav-page-link.active {
     grid-column: 2 / -1;
 }
 
-/* 7. Lessons — rates, details, inquiry form (lessons page) ----------------- */
+/* 7. Lessons */
 .rate-sentence {
     font-size: var(--fs-h5);
     text-align: center;
@@ -307,7 +313,7 @@ a.nav-page-link.active {
     opacity: 0.75;
 }
 
-/* Inquiry form result banner (rendered server-side by the Function) */
+/* Inquiry form result banner */
 .form-banner {
     max-width: 75rem;
     margin: 0 auto 1.5rem;
@@ -337,7 +343,6 @@ a.nav-page-link.active {
 
 .lesson-form label {
     display: block;
-    margin-bottom: 0.25rem;
     color: #000;
 }
 
@@ -390,6 +395,22 @@ a.nav-page-link.active {
     font-size: var(--fs-min);
     color: #000;
 }
+
+.mailing-list-form {
+    max-width: 45rem !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* 8. Responsive ------------------------------------------------------------ */
 @media (max-width: 1150px) {
